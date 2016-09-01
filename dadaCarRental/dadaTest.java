@@ -14,7 +14,7 @@ public class dadaTest {
 				new GoodsCar(6, "依维柯", 1000, 20)	
 		};
 		//系统开始提示
-		System.out.println("-----------欢迎使用答答租车系统-----------");
+		System.out.println("-----------欢迎使用嗒嗒租车系统-----------");
 	
 		while (true) {
 			System.out.println("\n\n\t您是否要租车？\n\t[1]是\t[0]否\n");	
