@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class dadaTest {
 	private static int carNum, days, price, passengerNum, goodsNum;
 	public static void main(String[] args) {
-		//初始化系统车辆 Car:Array[index] -> new PassengerCar(parameters);
+		//初始化系统车辆
 		Car[] carList = {
 				new PassengerCar(1,"奥迪A4",500,4),
 				new PassengerCar(2,"马自达6",400,4),
@@ -119,76 +119,89 @@ public class dadaTest {
 
 abstract class Car{
 	//声明汽车类的参数
-	public int id, price, busload;
-	public double goodsload;
-	public String brand;
+	private int id, price, busload;
+	private double goodsload;
+	private String brand;
+	
 	//获取汽车唯一编号
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getId() {
 		return id;
 	}
-	public String info() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	//获取单位时间的租赁价格
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	public int getPrice() {
 		return price;
 	}
 	//获取载客数
+	public void setBusload(int busload) {
+		this.busload = busload;
+	}
 	public int getBusload() {
 		return busload;
 	}
 	//获取载货量
+	public void setGoodsload(double goodsload) {
+		this.goodsload = goodsload;
+	}
 	public double getGoodsload() {
 		return goodsload;
 	}
 	//获取汽车品牌
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 	public String getBrand() {
 		return brand;
 	}
+	
 	public abstract void printInfo();
 }
 
 //客车
 class PassengerCar extends Car{
 	public PassengerCar (int id, String brand, int price, int busload) {
-		this.id = id;
-		this.brand = brand;
-		this.price = price;
-		this.busload = busload;
+		this.setId(id);
+		this.setBrand(brand);
+		this.setPrice(price);
+		this.setBusload(busload);
 	}
 	@Override
 	public void printInfo() {
-		System.out.println(this.id + "\t" + this.brand + "\t" + this.price + "元/天   " + this.busload +"人");
+		System.out.println(this.getId() + "\t" + this.getBrand() + "\t" + this.getPrice() + "元/天   " + this.getBusload() +"人");
 	}
 }
 
 //货车
 class GoodsCar extends Car{
 	public GoodsCar (int id, String brand, int price, double goodsload) {
-		this.id = id;
-		this.brand = brand;
-		this.price = price;
-		this.goodsload = goodsload;
+		this.setId(id);
+		this.setBrand(brand);
+		this.setPrice(price);
+		this.setGoodsload(goodsload);
 	}
 	@Override
 	public void printInfo() {
-		System.out.println(this.id + "\t" + this.brand + "\t" + this.price + "元/天   " + this.goodsload +"吨");
+		System.out.println(this.getId() + "\t" + this.getBrand() + "\t" + this.getPrice() + "元/天   " + this.getGoodsload() +"吨");
 	}
 }
 
 //皮卡
 class Pickup extends Car{
 	public Pickup (int id, String brand, int price, int busload, double goodsload) {
-		this.id = id;
-		this.brand = brand;
-		this.price = price;
-		this.busload = busload;
-		this.goodsload = goodsload;
+		this.setId(id);
+		this.setBrand(brand);
+		this.setPrice(price);
+		this.setBusload(busload);
+		this.setGoodsload(goodsload);
 	}
 	@Override
 	public void printInfo() {
-		System.out.println(this.id + "\t" + this.brand + "\t" + this.price + "元/天   " + this.busload + "人  " + this.goodsload +"吨");
+		System.out.println(this.getId() + "\t" + this.getBrand() + "\t" + this.getPrice() + "元/天   "+ this.getBusload() + "人  " + this.getGoodsload() +"吨");
 	}
 }
 
